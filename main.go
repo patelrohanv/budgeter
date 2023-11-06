@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"time"
+	"os"
 )
 
 // Models
@@ -23,6 +24,19 @@ var accounts []Account
 
 // Main
 func main() {
+	args := os.Args[1:]
+	switch args[0] {
+	case "-cli":
+		cli()
+	case "-web":
+		web()
+	default:
+		fmt.Println("Invalid action")
+	}
+}
+
+// Fascades
+func cli() {
 	var userInput string
 	for {
 		fmt.Println("Select a numeric option:")
@@ -48,6 +62,10 @@ func main() {
 			fmt.Println("Invalid action")
 		}
 	}
+}
+
+func web() {
+	fmt.Println("Not implemented yet")
 }
 
 // Functions
